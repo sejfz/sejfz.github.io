@@ -4,7 +4,6 @@
     <title>Cinos Messages</title>
   </head>
   <body>
-    <button onclick="pubnubDemo.publish()">Send position</button>
     <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.21.7.js"></script>
 
     <!-- Instantiate PubNub -->
@@ -17,11 +16,12 @@
       });
 
       // Publish a simple message to the “demo_tutorial” channel pubnub:
-
-      pubnubDemo.publish({
-        message: { color: "blue" },
-        channel: "demo_tutorial"
-      });
+      function pub() {
+        pubnubDemo.publish({
+          message: { color: "blue" },
+          channel: "demo_tutorial"
+        });
+      }
 
       // Subscribe to the demo_tutorial channel pubnub
 
@@ -55,6 +55,7 @@
         }
       }
     </script>
+    <button onclick="pub();">Send position</button>
 
     <p id="”heading”"></p>
   </body>
