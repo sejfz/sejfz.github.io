@@ -31,6 +31,7 @@
           var mess = document.createTextNode(message.message);
           messp.appendChild(mess)
           document.getElementById("messageContainer").appendChild(messp)
+          document.getElementById("messageContainer").setAttribute("value", "");
         }
       });
 
@@ -58,8 +59,8 @@
         }
       }
     </script>
-    <textarea onchange="pub(this.value)"></textarea>
-    <input type="submit">Send position</input>
+    <input type="text" onchange="pub(this.value)"></textarea>
+    <input type="submit"></input>
     <div id="messageContainer" >
 
     </div>
