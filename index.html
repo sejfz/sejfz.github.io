@@ -22,6 +22,7 @@
           message: val,
           channel: "demo_tutorial"
         });
+
       }
 
       // Subscribe to the demo_tutorial channel pubnub
@@ -32,7 +33,7 @@
           var mess = document.createTextNode(message.message);
           messp.appendChild(mess)
           document.getElementById("messageContainer").appendChild(messp)
-          document.getElementById("messageContainer").setAttribute("value", "");
+          document.getElementById("messageBox").value = ""
         }
       });
 
@@ -61,7 +62,7 @@
       }
     </script>
     <h1>Cinos Messaging Service</h1>
-    <input type="text" onchange="pub(this.value)"></textarea>
+    <input id="messageBox" type="text" onchange="pub(this.value)"></input>
     <input type="submit"></input>
     <div id="messageContainer" >
 
