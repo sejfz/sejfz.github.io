@@ -27,8 +27,10 @@
 
       pubnubDemo.addListener({
         message: function(message) {
-          document.createElement("p");
-          document.createTextNode(message.message);
+          var messp = document.createElement("p");
+          var mess = document.createTextNode(message.message);
+          messp.appendChild(mess)
+          document.getElementById("messageContainer").appendChild(messp)
         }
       });
 
