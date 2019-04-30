@@ -16,9 +16,9 @@
       });
 
       // Publish a simple message to the “demo_tutorial” channel pubnub:
-      function pub() {
+      function pub(val) {
         pubnubDemo.publish({
-          message: { color: "blue" },
+          message: val,
           channel: "demo_tutorial"
         });
       }
@@ -27,7 +27,8 @@
 
       pubnubDemo.addListener({
         message: function(message) {
-          console.log(message);
+          document.createElement("p");
+          document.createTextNode(message.message);
         }
       });
 
@@ -55,8 +56,11 @@
         }
       }
     </script>
-    <button onclick="pub();">Send position</button>
+    <textarea onchange="pub(this.value)"></textarea>
+    <input type="submit">Send position</input>
+    <div id="messageContainer" >
 
+    </div>
     <p id="”heading”"></p>
   </body>
 </html>
