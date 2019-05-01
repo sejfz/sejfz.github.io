@@ -10,6 +10,7 @@
     <!-- Instantiate PubNub -->
 
     <script type="text/javascript">
+      var direct = ""
       var pubnubDemo = new PubNub({
         publishKey: "pub-c-9104e0f9-e5b5-4025-b6e9-b1f56ba02166",
 
@@ -17,10 +18,10 @@
       });
 
       // Publish a simple message to the “demo_tutorial” channel pubnub:
-      function pub(val) {
+      function pub(val, chan) {
         pubnubDemo.publish({
           message: val,
-          channel: "demo_tutorial"
+          channel: chan
         });
 
       }
@@ -68,6 +69,7 @@
             direction = "west"
           }
           document.getElementById("heading").innerHTML = direction;
+          direct = direction
         } else {
           alert(
             "Your device is reporting relative alpha values, so this compass won't point north :("
@@ -85,11 +87,13 @@
     belonging to that directions channel.
     </p></div>
     <br>
-    <input id="messageBox" type="text" onchange="pub(this.value)"></input>
+    <h4>Current channel:</h4>
+    <div id="heading"></div>
+    <input id="messageBox" type="text" onchange="pub(this.value, direct)"></input>
     <input type="submit"></input>
     <div id="messageContainer" >
 
     </div>
-    <div id="heading"></div>
+    
   </body>
 </html>
