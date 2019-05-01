@@ -59,6 +59,9 @@
           var heading = 360 - alpha; //heading [0, 360)
           document.getElementById("heading").innerHTML = heading.toFixed([0]);
         }
+        var dir = document.createTextNode(heading);
+        document.getElementById("heading").appendChild(dir)
+
       }
     </script>
     <h1>Cinos Messaging Service</h1>
