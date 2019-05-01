@@ -54,11 +54,11 @@
           alpha = event.webkitCompassHeading; //for iOS devices
           var heading = alpha;
           var direction = ""
-          if (heading > 315 && heading < 46) {
-            direction = "north"
-          }
-          else if (heading > 45 && heading < 136) {
+          if (heading > 45 && heading < 136) {
             direction = "east"
+          }
+          else if (heading > 315 && heading < 46){
+            direction = "north"
           }
           else if (heading > 135 && heading < 226) {
             direction = "south"
