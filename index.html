@@ -36,8 +36,8 @@
           document.getElementById("messageBox").value = ""
         }
       });
-      function sub(channel) {
-        pubnubDemo.subscribe({channels: ["north", "south"]
+      function sub(chan) {
+        pubnubDemo.subscribe({channels: [chan]
       })
     }
       window.addEventListener("deviceorientation", deviceOrientationListener, true);
@@ -84,7 +84,7 @@
         
       }
 
-      sub("north")
+      
     </script>
     <h1>Cinos Messaging Service</h1>
     <div class="desc"><p>Point your device in one of the four cardinal directions - North, South, East or West - to get messages
