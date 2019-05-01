@@ -37,11 +37,12 @@
           document.getElementById("messageBox").value = ""
         }
       });
-
+      function sub (channel) {
+        pubnubDemo.unsubscribeAll();
       pubnubDemo.subscribe({
-        channels: ["demo_tutorial", "north", "south", "west", "east"]
+        channels: [channel]
       });
-
+}
       window.addEventListener("deviceorientation", deviceOrientationListener, true);
 
       // Get event data
@@ -68,6 +69,7 @@
           else if (heading > 225 && heading < 316) {
             direction = "west"
           }
+          sub(direction)
           document.getElementById("heading").innerHTML = direction;
           direct = direction
         } else {
