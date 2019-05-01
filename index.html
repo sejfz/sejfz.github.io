@@ -38,7 +38,7 @@
       });
 
       pubnubDemo.subscribe({
-        channels: ["demo_tutorial"]
+        channels: ["demo_tutorial", "north", "south", "west", "east"]
       });
 
       // Get event data
@@ -59,7 +59,9 @@
           var heading = 360 - alpha; //heading [0, 360)
           document.getElementById("heading").innerHTML = heading.toFixed([0]);
         }
-        var dir = document.createTextNode(heading);
+        var dirp = document.createElement("p");
+        var dir = document.createTextNode("Hejhej")
+        dirp.appendChild(dir)
         document.getElementById("heading").appendChild(dir)
 
       }
@@ -74,6 +76,6 @@
     <div id="messageContainer" >
 
     </div>
-    <p id="heading"></p>
+    <div id="heading">jaha</div>
   </body>
 </html>
