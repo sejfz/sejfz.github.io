@@ -18,10 +18,10 @@
       });
 
       // Publish a simple message to the “demo_tutorial” channel pubnub:
-      function pub(val, chan) {
+      function pub(val) {
         pubnubDemo.publish({
           message: val,
-          channel: chan
+          channel: document.getElementById("heading").innerHTML
         });
 
       }
@@ -93,8 +93,8 @@
     </p></div>
     <br>
     <h4>Current channel:</h4>
-    <div id="heading"></div>
-    <input id="messageBox" type="text" onchange="pub(this.value, direct)"></input>
+    <p id="heading"></p>
+    <input id="messageBox" type="text" onchange="pub(this.value)"></input>
     <input type="submit"></input>
     <div id="messageContainer" >
 
