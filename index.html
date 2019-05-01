@@ -59,17 +59,20 @@
           document.getElementById("heading").innerHTML = heading.toFixed([0])
           if (heading > 45 && heading < 136) {
             direction = "east"
+            sub(direction);
           }
           else if (heading > 315 && heading < 46){
             direction = "north"
+            sub(direction);
           }
           else if (heading > 135 && heading < 226) {
             direction = "south"
+            sub(direction);
           }
           else if (heading > 225 && heading < 316) {
             direction = "west"
+            sub(direction);
           }
-          sub(direction);
           document.getElementById("heading").innerHTML = direction;
           direct = direction
         } else {
