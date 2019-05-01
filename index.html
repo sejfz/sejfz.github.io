@@ -23,7 +23,6 @@
           message: val,
           channel: document.getElementById("heading").innerHTML
         });
-
       }
 
       // Subscribe to the demo_tutorial channel pubnub
@@ -37,10 +36,8 @@
           document.getElementById("messageBox").value = ""
         }
       });
-      function sub (channel) {
-        pubnubDemo.unsubscribeAll();
-      pubnubDemo.subscribe({
-        channels: [channel]
+      function sub(channel) {
+        pubnubDemo.subscribe({channels: [channel]
       });
 }
       window.addEventListener("deviceorientation", deviceOrientationListener, true);
@@ -59,19 +56,19 @@
           document.getElementById("heading").innerHTML = heading.toFixed([0])
           if (heading > 45 && heading < 136) {
             direction = "east"
-            sub(direction);
+            sub("east");
           }
           else if (heading > 315 && heading < 46){
             direction = "north"
-            sub(direction);
+            sub("north");
           }
           else if (heading > 135 && heading < 226) {
             direction = "south"
-            sub(direction);
+            sub("south");
           }
           else if (heading > 225 && heading < 316) {
             direction = "west"
-            sub(direction);
+            sub("west");
           }
           document.getElementById("heading").innerHTML = direction;
           direct = direction
@@ -86,6 +83,8 @@
         }
         
       }
+
+      sub("north")
     </script>
     <h1>Cinos Messaging Service</h1>
     <div class="desc"><p>Point your device in one of the four cardinal directions - North, South, East or West - to get messages
