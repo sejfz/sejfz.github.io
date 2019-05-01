@@ -55,16 +55,16 @@
           var heading = alpha;
           var direction = ""
           if (heading < 46 && heading > 315) {
-            direction = "north"
+            direction = "west"
           }
           else if (heading > 45 && heading < 136) {
-            direction = "east"
+            direction = "north"
           }
           else if (heading > 135 && heading < 226) {
-            direction = "south"
+            direction = "east"
           }
           else if (heading > 225 && heading < 316) {
-            direction = "west"
+            direction = "south"
           }
           document.getElementById("heading").innerHTML = direction;
         } else {
