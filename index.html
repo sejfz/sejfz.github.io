@@ -41,6 +41,8 @@
         channels: ["demo_tutorial", "north", "south", "west", "east"]
       });
 
+      window.addEventListener("deviceorientation", deviceOrientationListener, true);
+
       // Get event data
       function deviceOrientationListener(event) {
         var alpha = event.alpha; //z axis rotation [0,360)
@@ -72,7 +74,7 @@
     </p></div>
     <br>
     <input id="messageBox" type="text" onchange="pub(this.value)"></input>
-    <input type="submit" onclick="deviceOrientationListener()"></input>
+    <input type="submit"></input>
     <div id="messageContainer" >
 
     </div>
