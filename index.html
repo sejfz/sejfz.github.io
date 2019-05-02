@@ -36,7 +36,10 @@
           var mess = document.createTextNode(message.message);
           messp.setAttributeNode(pclass)
           messp.appendChild(mess)
+          console.log(message.channel)
+          console.log(messp)
           document.getElementById(message.channel).appendChild(messp)
+          
           document.getElementById("messageBox").value = ""
         }
       });
@@ -94,10 +97,10 @@
     <input type="submit"></input>
     <div id="messageContainer">
       <span id="east_ch">
-          <h2>Channel Easttt</h2>
+          <h2>Channel East</h2>
       </span>
       <span id="west_ch">
-          <h2>Channel Westtt</h2>
+          <h2>Channel West</h2>
       </span>
     </div>
     
