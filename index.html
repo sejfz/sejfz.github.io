@@ -56,8 +56,8 @@
           var heading = alpha;
           document.getElementById("heading").innerHTML = heading.toFixed([0])
           if (heading > 0 && heading < 181) {
-            pubnub.unsubscribe({ channels: [ 'west'] });
             pubnub.subscribe({ channels: ['east'] });
+            pubnub.unsubscribe({ channels: [ 'west'] });
 
             channel.actualChannel = 'east';
             content.messageCenter = 'east_ch';
@@ -65,8 +65,8 @@
             document.getElementById("west_ch").style.display = "none";
             document.getElementsByClassName("message").remove
           } else {
-            pubnub.unsubscribe({ channels: ['east'] });
             pubnub.subscribe({ channels: ['west'] });
+            pubnub.unsubscribe({ channels: ['east'] });
 
             channel.actualChannel = 'west';
             content.messageCenter = 'west_ch';
