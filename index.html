@@ -19,10 +19,10 @@
       });
 
       // Publish a simple message to the “demo_tutorial” channel pubnub:
-      function pub(val, ch) {
+      function pub(val) {
         pubnubDemo.publish({
           message: val,
-          channel: ch
+          channel: channel.actualChannel
         });
       }
 
@@ -36,7 +36,7 @@
           var mess = document.createTextNode(message.message);
           messp.setAttributeNode(pclass)
           messp.appendChild(mess)
-          document.getElementById(pubnubDemo.publish.channel).appendChild(messp)
+          document.getElementById(message.channel).appendChild(messp)
           document.getElementById("messageBox").value = ""
         }
       });
@@ -62,13 +62,11 @@
             content.messageCenter = 'east_ch';
             document.getElementById("east_ch").style.display = "block";
             document.getElementById("west_ch").style.display = "none";
-            document.getElementById("messageBox").className = "east"
           } else {
             channel.actualChannel = 'west';
             content.messageCenter = 'west_ch';
             document.getElementById("west_ch").style.display = "block";
             document.getElementById("east_ch").style.display = "none";
-            document.getElementById("messageBox").className = "west"
           }
         
         } else {
@@ -92,7 +90,7 @@
     <br>
     <h4>Current channel:</h4>
     <p id="heading"></p>
-    <input class="east" id="messageBox" type="text" onchange="pub(this.value, this.class)"></input>
+    <input id="messageBox" type="text" onchange="pub(this.value, this.class)"></input>
     <input type="submit"></input>
     <div id="messageContainer">
       <span id="east_ch">
