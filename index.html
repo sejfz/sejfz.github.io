@@ -10,7 +10,7 @@
     <!-- Instantiate PubNub -->
 
     <script type="text/javascript">
-        var channel = {actualChannel: 'east'} 
+        var channel = {actualChannel: 'east'}
         var pubnubDemo = new PubNub({
         publishKey: "pub-c-9104e0f9-e5b5-4025-b6e9-b1f56ba02166",
         subscribeKey: "sub-c-dc91d102-6a77-11e9-a1d6-2a8c316da507"
@@ -29,7 +29,10 @@
       pubnubDemo.addListener({
         message: function(message) {
           var messp = document.createElement("p");
+          var pclass = document.createAttribute("class")
+          pclass.value = "message"
           var mess = document.createTextNode(message.message);
+          messp.setAttributeNode(pclass)
           messp.appendChild(mess)
           document.getElementById("messageContainer").appendChild(messp)
           document.getElementById("messageBox").value = ""
@@ -55,10 +58,12 @@
             channel.actualChannel = 'east';
             document.getElementById("east_ch").style.display = "block";
             document.getElementById("west_ch").style.display = "none";
+            document.getElementsByClassName("message").remove
           } else {
             channel.actualChannel = 'west';
             document.getElementById("west_ch").style.display = "block";
             document.getElementById("east_ch").style.display = "none";
+            document.getElementsByClassName("message").remove
           }
         
         } else {
@@ -86,10 +91,10 @@
     <input type="submit"></input>
     <div id="messagesHandler">
       <span id="east_ch">
-          <h2>Channel East</h2>
+          <h2>Channel Eastt</h2>
       </span>
       <span id="west_ch">
-          <h2>Channel West</h2>
+          <h2>Channel Westt</h2>
       </span>
     </div>
     <div id="messageContainer" >
