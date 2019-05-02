@@ -56,12 +56,18 @@
           var heading = alpha;
           document.getElementById("heading").innerHTML = heading.toFixed([0])
           if (heading > 0 && heading < 181) {
+            pubnub.unsubscribe({ channels: [ 'west'] });
+            pubnub.subscribe({ channels: ['east'] });
+
             channel.actualChannel = 'east';
             content.messageCenter = 'east_ch';
             document.getElementById("east_ch").style.display = "block";
             document.getElementById("west_ch").style.display = "none";
             document.getElementsByClassName("message").remove
           } else {
+            pubnub.unsubscribe({ channels: ['east'] });
+            pubnub.subscribe({ channels: ['west'] });
+
             channel.actualChannel = 'west';
             content.messageCenter = 'west_ch';
             document.getElementById("west_ch").style.display = "block";
@@ -94,10 +100,10 @@
     <input type="submit"></input>
     <div id="messageContainer">
       <span id="east_ch">
-          <h2>Channel Easte</h2>
+          <h2>Channel East</h2>
       </span>
       <span id="west_ch">
-          <h2>Channel Weste</h2>
+          <h2>Channel West</h2>
       </span>
     </div>
     
