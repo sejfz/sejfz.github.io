@@ -10,10 +10,9 @@
     <!-- Instantiate PubNub -->
 
     <script type="text/javascript">
-      var direct = ""
-      var pubnubDemo = new PubNub({
+        var channel = {actualChannel: 'east'} 
+        var pubnubDemo = new PubNub({
         publishKey: "pub-c-9104e0f9-e5b5-4025-b6e9-b1f56ba02166",
-
         subscribeKey: "sub-c-dc91d102-6a77-11e9-a1d6-2a8c316da507"
       });
 
@@ -21,7 +20,7 @@
       function pub(val) {
         pubnubDemo.publish({
           message: val,
-          channel: document.getElementById("messagesHandler").innerHTML
+          channel: channel.actualChannel
         });
       }
 
@@ -37,8 +36,7 @@
         }
       });
 
-        pubnubDemo.subscribe({channels: ["east", "west"]
-      })
+        pubnubDemo.subscribe({channels: ["east", "west"]})
     
       window.addEventListener("deviceorientation", deviceOrientationListener, true);
 
@@ -54,9 +52,11 @@
           var heading = alpha;
           document.getElementById("heading").innerHTML = heading.toFixed([0])
           if (heading > 0 && heading < 181) {
+            channel.actualChannel = 'east';
             document.getElementById("east_ch").style.display = "block";
             document.getElementById("west_ch").style.display = "none";
           } else {
+            channel.actualChannel = 'west';
             document.getElementById("west_ch").style.display = "block";
             document.getElementById("east_ch").style.display = "none";
           }
@@ -86,10 +86,10 @@
     <input type="submit"></input>
     <div id="messagesHandler">
       <span id="east_ch">
-          <h2>Channel Easthh</h2>
+          <h2>Channel East</h2>
       </span>
       <span id="west_ch">
-          <h2>Channel Westhh</h2>
+          <h2>Channel West</h2>
       </span>
     </div>
     <div id="messageContainer" >
