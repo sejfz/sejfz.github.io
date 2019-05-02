@@ -36,9 +36,9 @@
           var mess = document.createTextNode(message.message);
           messp.setAttributeNode(pclass)
           messp.appendChild(mess)
-          console.log(channel.actualChannel)
+          console.log(message.channel)
           console.log("messp: " + messp)
-          document.getElementById(message.channel).appendChild(messp)
+          document.getElementById(message.channel + "_ch").appendChild(messp)
           
           document.getElementById("messageBox").value = ""
         }
