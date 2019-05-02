@@ -36,10 +36,10 @@
           document.getElementById("messageBox").value = ""
         }
       });
-      function sub(chan) {
-        pubnubDemo.subscribe({channels: [chan]
+
+        pubnubDemo.subscribe({channels: ["east", "west"]
       })
-    }
+    
       window.addEventListener("deviceorientation", deviceOrientationListener, true);
 
       // Get event data
@@ -52,26 +52,15 @@
         if (typeof event.webkitCompassHeading !== "undefined") {
           alpha = event.webkitCompassHeading; //for iOS devices
           var heading = alpha;
-          var direction = ""
           document.getElementById("heading").innerHTML = heading.toFixed([0])
-          if (heading > 45 && heading < 136) {
-            direction = "east"
-            sub("east");
+          if (heading > 0 && heading < 181) {
+            document.getElementById("east_ch").style.display = "block";
+            document.getElementById("west_ch").style.display = "none";
+          } else {
+            document.getElementById("west_ch").style.display = "block";
+            document.getElementById("east_ch").style.display = "none";
           }
-          else if (heading > 315 && heading < 46){
-            direction = "north"
-            sub("north");
-          }
-          else if (heading > 135 && heading < 226) {
-            direction = "south"
-            sub("south");
-          }
-          else if (heading > 225 && heading < 316) {
-            direction = "west"
-            sub("west");
-          }
-          document.getElementById("heading").innerHTML = direction;
-          direct = direction
+        
         } else {
           alert(
             "Your device is reporting relative alpha values, so this compass won't point north :("
@@ -79,7 +68,6 @@
           var heading = 360 - alpha; //heading [0, 360)
 
           document.getElementById("heading").innerHTML = heading.toFixed([0]);
-          sub("360")
 
         }
         
@@ -96,6 +84,14 @@
     <p id="heading"></p>
     <input id="messageBox" type="text" onchange="pub(this.value)"></input>
     <input type="submit"></input>
+    <div id="messagesHandler">
+      <span id="east_ch">
+          <h2>Channel East</h2>
+      </span>
+      <span id="west_ch">
+          <h2>Channel West</h2>
+      </span>
+    </div>
     <div id="messageContainer" >
 
     </div>
